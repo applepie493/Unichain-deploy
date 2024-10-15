@@ -64,15 +64,19 @@ contract ファイル名 is ERC20 {
     }
 }
 ```
-## 1.プロジェクトディレクトリの作成する
+## ４.デプロイ
 ```
-mkdir hardhat-move-evm
+forge create ファイル名.sol:ファイル名 --rpc-url Alchemy等からUnichainから取得 --private-key ぷらいべーときー
+```
+Transaction hash: 0x4e5aaec1a712324d30b11c142afa49aae6d7032a0ba0be3569d53f7259f75c33
+などが表示されたらOK
+
+## ５.デプロイのときにエラーが出た場合
+-import "@openzeppelin　←がインストールされてないよ
+```
+forge install OpenZeppelin/openzeppelin-contracts
 ```
 
-## 2.プロジェクトディレクトリへ移動
-```
-cd hardhat-move-evm
-```
 
 ## 3.hardhatのプロジェクトを作成
  ```
