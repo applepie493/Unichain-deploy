@@ -38,9 +38,10 @@ forge --version
 
 
 # 3.フォルダの中身
- unichain
-    ├── 
-
+.
+├── xxx
+├── xxx
+└── README.md
 ## 1.プロジェクトディレクトリの作成する
 ```
 mkdir hardhat-move-evm
