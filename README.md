@@ -4,20 +4,28 @@
 
 Unichainのテストネットがあり、deployしてみました。
 
-# 1.Foundry
-- 手動でネットワークを追加
-    - Network Name: Move-EVM
-    - Network RPC: https://mevm.devnet.m1.movementlabs.xyz/v1
-    - Network ID: 0x0150
-    - Network Currency: MOV
-<br>
-- ID：0x150　画像で確認すると0150ではない。0150でやるとエラーになる。
+# 1.プロジェクトディレクトリの作成
+```
+mkdir unichain（任意）&& cd unichain
+```
 
-# 2.faucet
-以下のリンクよりアクセス。<br>
-    <https://faucet.movementlabs.xyz/?network=testnet>
-<br>M1 faucetにMove-EVMのウォレットアドレスを入力し、faucetを押す。<br>
-<br>1 MOV貰えます。
+# 2.Foundrynの設定
+```
+curl -L https://foundry.paradigm.xyz | bash
+```
+初めてなら多分依存関係でエラーがでる
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/izumishunsuke/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+で次に
+```
+brew install libusb
+source /Users/任意/.zshenv
+```
+sourceで更新するかターミナル再起動
+
 
 # 3.hardhatとFractalを使用してM1へのコントラクトをデプロイする
 
