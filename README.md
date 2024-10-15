@@ -24,6 +24,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install libusb
 source /Users/任意/.zshenv
 ```
+sourceで更新するかターミナル再起動して下記を実行
+```
+curl -L https://foundry.paradigm.xyz | bash
+source /Users/任意/.zshenv
+```
 sourceで更新するかターミナル再起動
 
 
