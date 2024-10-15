@@ -72,85 +72,37 @@ Transaction hash: 0x4e5aaec1a712324d30b11c142afa49aae6d7032a0ba0be3569d53f7259f7
 などが表示されたらOK
 
 ## ５.デプロイのときにエラーが出た場合
--import "@openzeppelin　←がインストールされてないよ
+import "@openzeppelin　←がインストールされてないよ
 ```
 forge install OpenZeppelin/openzeppelin-contracts
 ```
-
-
-## 3.hardhatのプロジェクトを作成
- ```
- npx hardhat init
+git status exited with code 128:
+fatal: not a git repository (or any of the parent directories): .git ← gitを初期化
 ```
- 
- 今回は、JSを選択しました。
-
-## 4.依存関係の確認
-
+git init
 ```
-npm install --save-dev "hardhat@^2.19.0" "@nomicfoundation/hardhat-toolbox@^3.0.0"
+Error: 
+The target directory is a part of or on its own an already initialized git repository,
+and it requires clean working and staging areas, including no untracked files.
+
+Check the current git repository's status with `git status`.
+Then, you can track files with `git add ...` and then commit them with `git commit`,
+ignore them in the `.gitignore` file, or run this command again with the `--no-commit` flag.
+
+If none of the previous steps worked, please open an issue at:
+https://github.com/foundry-rs/foundry/issues/new/choose
 ```
-
-
-## 5.dotenvのインストール
+git status
+echo ".DS_Store" >> .gitignore
+git add .
 ```
-npm install dotenv
+で解決しました。
+エラーを修正後
 ```
-
-
-## 6..envファイルの作成
+forge install OpenZeppelin/openzeppelin-contracts
 ```
-touch .env
-```
-中身は`PRIVATE_KEY=<your private key>` <br>
-エディタはnanoを使用。
-
-
-## 7.hardhat.config.jsの書き換え
-```
-require("@nomicfoundation/hardhat-toolbox");
-require('dotenv').config();
-
-module.exports = {
-  defaultNetwork: "m1",
-  networks: {
-    hardhat: {
-    },
-    m1: {
-      url: "https://mevm.devnet.m1.movementlabs.xyz/v1",
-      accounts: [process.env.PRIVATE_KEY],
-      chainId: 336,
-      gasPrice: "auto",
-    }
-  },
-  solidity: {
-    version: "0.8.19",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200
-      }
-    }
-  },
-  paths: {
-    sources: "./contracts",
-    tests: "./test",
-    cache: "./cache",
-    artifacts: "./artifacts"
-  }
-}
-```
-
-
-## 8.実行
-```
-npx hardhat run scripts/deploy.js --network m1
-```
-
-
-# 4.実行結果
-`Lock with 0.001ETH and unlock timestamp 1702990817 deployed to ********************************`
+でいけるはず・・・
 
 
 # 5.参考文献
-<https://docs.movementlabs.xyz/developers/developer-tools/fractal/fractal-hardhat>
+<https://docs.unichain.org/docs/building-on-unichain/deploy-a-smart-contract>
