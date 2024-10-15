@@ -31,8 +31,15 @@ source /Users/任意/.zshenv
 ```
 sourceで更新するかターミナル再起動
 
+```
+forge --version
+```
+でforge 0.2.0とか表示されたらOK
 
-# 3.hardhatとFractalを使用してM1へのコントラクトをデプロイする
+
+# 3.フォルダの中身
+ unichain
+    ├── 
 
 ## 1.プロジェクトディレクトリの作成する
 ```
