@@ -42,6 +42,28 @@ forge --version
 unichain(フォルダ）
 ├── 
 ```
+中身が空だと思うので
+```
+nano ファイル名.sol
+```
+で作成し、中身は
+```
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract ファイル名 is ERC20 {
+    // トークンの初期供給量
+    uint256 constant _initialSupply = 1000000 * 10**18;
+
+    // コンストラクタ: トークンの名前とシンボルを指定
+    constructor() ERC20("ファイル名", "MTK") {
+        // コントラクトのデプロイ時に、デプロイアドレスに初期供給量を割り当て
+        _mint(msg.sender, _initialSupply);
+    }
+}
+```
 ## 1.プロジェクトディレクトリの作成する
 ```
 mkdir hardhat-move-evm
